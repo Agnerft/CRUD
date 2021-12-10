@@ -24,7 +24,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     public FormPadrao() {
         initComponents();
         habilitaBotoes(true);
-        jTextFieldBoxId.setEditable(false);
+        jtFieldBoxId.setEditable(false);
         limpaCampos();
         desabilitaEdicao();
         inicializarComponentes();
@@ -60,9 +60,9 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         jBCancelar = new javax.swing.JButton();
         jPnFormulario = new javax.swing.JPanel();
         jTextFieldNome = new javax.swing.JTextField();
-        jTextFieldBoxNome = new javax.swing.JTextField();
+        jtBoxNome = new javax.swing.JTextField();
         jTextFieldId = new javax.swing.JTextField();
-        jTextFieldBoxId = new javax.swing.JTextField();
+        jtFieldBoxId = new javax.swing.JTextField();
         jBFechar = new javax.swing.JButton();
         jPanelConsulta = new javax.swing.JPanel();
 
@@ -150,7 +150,12 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextFieldBoxNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtBoxNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtBoxNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtBoxNomeActionPerformed(evt);
+            }
+        });
 
         jTextFieldId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldId.setText("ID");
@@ -161,11 +166,10 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextFieldBoxId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextFieldBoxId.setPreferredSize(new java.awt.Dimension(3, 16));
-        jTextFieldBoxId.addActionListener(new java.awt.event.ActionListener() {
+        jtFieldBoxId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jtFieldBoxId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBoxIdActionPerformed(evt);
+                jtFieldBoxIdActionPerformed(evt);
             }
         });
 
@@ -189,11 +193,11 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPnFormularioLayout.createSequentialGroup()
-                        .addComponent(jTextFieldBoxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtBoxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBFechar))
                     .addGroup(jPnFormularioLayout.createSequentialGroup()
-                        .addComponent(jTextFieldBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtFieldBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -202,12 +206,12 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
             .addGroup(jPnFormularioLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
                 .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtFieldBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldBoxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtBoxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
                 .addComponent(jBFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -251,7 +255,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     private void jBNovoProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoProdutoActionPerformed
        habilitaBotoes(false);
        limpaCampos();
-       jTextFieldBoxNome.requestFocus();
+       jtBoxNome.requestFocus();
     }//GEN-LAST:event_jBNovoProdutoActionPerformed
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
@@ -264,7 +268,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     
     private void jBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAlterarActionPerformed
         habilitaBotoes(false);
-        jTextFieldBoxNome.requestFocus();
+        jtBoxNome.requestFocus();
     }//GEN-LAST:event_jBAlterarActionPerformed
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
@@ -276,13 +280,17 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     desabilitaEdicao();
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
-    private void jTextFieldBoxIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBoxIdActionPerformed
+    private void jtFieldBoxIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtFieldBoxIdActionPerformed
        
-    }//GEN-LAST:event_jTextFieldBoxIdActionPerformed
+    }//GEN-LAST:event_jtFieldBoxIdActionPerformed
 
     private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
       desabilitaEdicao();
     }//GEN-LAST:event_jTextFieldIdActionPerformed
+
+    private void jtBoxNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBoxNomeActionPerformed
+        
+    }//GEN-LAST:event_jtBoxNomeActionPerformed
             //METODO PARA HABILITAR E DESABILITAR OS BOTÕES NO FORMULARIO
     public void habilitaBotoes(boolean estado){
         jBNovoProduto.setEnabled(estado);
@@ -302,7 +310,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     
     // METODO PARA LIMPAR OS CAMPOS
     public void limpaCampos(){
-        jTextFieldBoxNome.setText("");
+        jtBoxNome.setText("");
         
     }
 
@@ -316,9 +324,9 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     public javax.swing.JPanel jPanelConsulta;
     public javax.swing.JPanel jPnBotoes;
     public javax.swing.JPanel jPnFormulario;
-    public javax.swing.JTextField jTextFieldBoxId;
-    public javax.swing.JTextField jTextFieldBoxNome;
     public javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldNome;
+    public javax.swing.JTextField jtBoxNome;
+    public javax.swing.JTextField jtFieldBoxId;
     // End of variables declaration//GEN-END:variables
 }

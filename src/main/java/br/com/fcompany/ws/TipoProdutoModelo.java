@@ -12,23 +12,68 @@ public class TipoProdutoModelo {
     
     private int id;
     private String nome;
+//  private int codigoEstoque;
+    private String caracteristicaProduto;
+    private int contagemProduto;
+    private double valorCompra;
+//  private double porcentagem;
 
     public int getId() {
         return id;
-    }
-
-    public String getNome() {
-        return nome;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
-    
+
+    public double getValorCompra() {
+        return valorCompra;
+    }
+
+    public void setValorCompra(double valorCompra) {
+        this.valorCompra = valorCompra;
+    }
+
+//    public int getCodigoEstoque() {
+//        return codigoEstoque;
+//    }
+//
+//    public void setCodigoEstoque(int codigoEstoque) {
+//        this.codigoEstoque = codigoEstoque;
+//    }
+
+    public String getCaracteristicaProduto() {
+        return caracteristicaProduto;
+    }
+
+    public void setCaracteristicaProduto(String caracteristicaProduto) {
+        this.caracteristicaProduto = caracteristicaProduto;
+    }
+
+    public int getContagemProduto() {
+        return contagemProduto;
+    }
+
+    public void setContagemProduto(int contagemProduto) {
+        this.contagemProduto = contagemProduto;
+    }
+
+//    public double getPorcentagem() {
+//        return porcentagem;
+//    }
+//
+//    public void setPorcentagem(double porcentagem) {
+//        this.porcentagem = porcentagem;
+//    }
+
+  
     
 }

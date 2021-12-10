@@ -1,6 +1,5 @@
 package br.com.fcompany.forms;
 
-
 import br.com.fcompany.controle.TipoProdutoControle;
 import java.awt.Color;
 import javax.swing.BorderFactory;
@@ -9,26 +8,23 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class CadastroProduto extends FormPadrao {
-    
-    
+
     // INSTANCIA DO CONTROLE
     TipoProdutoControle tpc = new TipoProdutoControle();
-    
-    
+
     JLabel jlCaracteristica;
     JTextArea jtCaracteristica;
-       
+
     JLabel jlContagemProduto;
     JTextField jtContagemProduto;
-     
+
     JLabel jlValor;
     JTextField jtValor;
-    
-  
+
     public CadastroProduto() {
 
         setTitle("CADASTRO DE PRODUTO");
-        
+
     }
 
     @Override
@@ -44,12 +40,12 @@ public class CadastroProduto extends FormPadrao {
         // ADD NO FORMULARIO
         jPnFormulario.add(jlCaracteristica);
         // TextArea CARACTERISICA
-        jtCaracteristica = new JTextArea();        
-        jtCaracteristica.setBounds(239, 73, 351, 50);        
+        jtCaracteristica = new JTextArea();
+        jtCaracteristica.setBounds(239, 73, 351, 50);
         jtCaracteristica.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         // ADD NO FORMULARIO
         jPnFormulario.add(jtCaracteristica);
-        
+
         // TextField CONTAGEM PRODUTO
         jlContagemProduto = new JLabel("QTD. PRODUTO");
         jlContagemProduto.setBounds(120, 137, 100, 20);
@@ -64,7 +60,7 @@ public class CadastroProduto extends FormPadrao {
         jtContagemProduto.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         // ADD NO FORMULARIO
         jPnFormulario.add(jtContagemProduto);
-        
+
         // JLabel VALOR
         jlValor = new JLabel("VALOR");
         jlValor.setBounds(445, 137, 50, 20);
@@ -73,22 +69,23 @@ public class CadastroProduto extends FormPadrao {
         jlValor.setOpaque(true);
         // ADD NO FORMULARIO
         jPnFormulario.add(jlValor);
-        
+
         // JTextField VALOR
         jtValor = new JTextField();
         jtValor.setBounds(515, 137, 75, 20);
         jtValor.setBackground(Color.white);
         jtValor.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
         jtValor.setOpaque(true);
-        
+
         jPnFormulario.add(jtValor);
-             
+
     }
 
     @Override
-    public void salvar(){
+    public void salvar() {
         // INSERIR OS COMANDOS QUE SERÁ FEITO NO CONTROLE
-        tpc.salvarProduto(jTextFieldBoxId.getText(), jTextFieldBoxNome.getText());
+        tpc.salvarProduto(jtFieldBoxId.getText(), jtBoxNome.getText());
+                //, jtCaracteristica.getText(), jtContagemProduto.getText(), jtValor.getText());
     }
 
 }

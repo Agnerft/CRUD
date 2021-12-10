@@ -1,6 +1,8 @@
 
 package br.com.fcompany.forms;
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -18,27 +20,30 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     abstract public void salvar();
         
         // CONSTRUTOR -- SERA EXECUTADO QUANDO O FORM FOR CHAMADO
-    
+        //Metodo Construtor
     public FormPadrao() {
         initComponents();
         habilitaBotoes(true);
         jTextFieldBoxId.setEditable(false);
         limpaCampos();
         desabilitaEdicao();
+        inicializarComponentes();
         
 
         //jLabel - consulta
-        jlConsulta = new JLabel("Consulta");
-        jlConsulta.setBounds(5, 5, 50, 25);
-        
+        jlConsulta = new JLabel("CONSULTA");
+        jlConsulta.setBackground(Color.white);
+        jlConsulta.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
+        jlConsulta.setBounds(15, 10, 90, 20);
+        jlConsulta.setOpaque(true);
         jPanelConsulta.add(jlConsulta);
         
     
         //jTextField - consulta
         
         jtfConsulta = new JTextField();
-        jtfConsulta.setBounds(60, 5, 533, 25);
-        
+        jtfConsulta.setBounds(120, 10, 533, 20);
+        jtfConsulta.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
          jPanelConsulta.add(jtfConsulta);  
     }
 
@@ -56,17 +61,10 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         jPnFormulario = new javax.swing.JPanel();
         jTextFieldNome = new javax.swing.JTextField();
         jTextFieldBoxNome = new javax.swing.JTextField();
-        jTextFieldValor = new javax.swing.JTextField();
-        jTextFieldBoxValor = new javax.swing.JTextField();
-        jTextFieldQuantidade = new javax.swing.JTextField();
-        jTextFieldBoxQuantidade = new javax.swing.JTextField();
-        jTextFieldCaractProduto = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaBoxCaractProduto = new javax.swing.JTextArea();
         jTextFieldId = new javax.swing.JTextField();
         jTextFieldBoxId = new javax.swing.JTextField();
-        jPanelConsulta = new javax.swing.JPanel();
         jBFechar = new javax.swing.JButton();
+        jPanelConsulta = new javax.swing.JPanel();
 
         jPnBotoes.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -145,112 +143,31 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
 
         jTextFieldNome.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldNome.setText("NOME");
+        jTextFieldNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextFieldNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNomeActionPerformed(evt);
             }
         });
 
-        jTextFieldValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldValor.setText("VALOR");
-        jTextFieldValor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldValorActionPerformed(evt);
-            }
-        });
-
-        jTextFieldBoxValor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBoxValorActionPerformed(evt);
-            }
-        });
-
-        jTextFieldQuantidade.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldQuantidade.setText("QUANTIDADE");
-        jTextFieldQuantidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldQuantidadeActionPerformed(evt);
-            }
-        });
-
-        jTextFieldCaractProduto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextFieldCaractProduto.setText("CARACTERISTICAS DO PRODUTO");
-        jTextFieldCaractProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCaractProdutoActionPerformed(evt);
-            }
-        });
-
-        jTextAreaBoxCaractProduto.setColumns(20);
-        jTextAreaBoxCaractProduto.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaBoxCaractProduto);
+        jTextFieldBoxNome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jTextFieldId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextFieldId.setText("ID");
+        jTextFieldId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextFieldId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldIdActionPerformed(evt);
             }
         });
 
+        jTextFieldBoxId.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextFieldBoxId.setPreferredSize(new java.awt.Dimension(3, 16));
         jTextFieldBoxId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldBoxIdActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPnFormularioLayout = new javax.swing.GroupLayout(jPnFormulario);
-        jPnFormulario.setLayout(jPnFormularioLayout);
-        jPnFormularioLayout.setHorizontalGroup(
-            jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPnFormularioLayout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPnFormularioLayout.createSequentialGroup()
-                        .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPnFormularioLayout.createSequentialGroup()
-                                .addComponent(jTextFieldId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldNome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPnFormularioLayout.createSequentialGroup()
-                                .addComponent(jTextFieldBoxValor, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
-                                .addComponent(jTextFieldQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldBoxQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextFieldBoxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1)
-                    .addComponent(jTextFieldCaractProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPnFormularioLayout.setVerticalGroup(
-            jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPnFormularioLayout.createSequentialGroup()
-                .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldBoxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldBoxValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldBoxQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextFieldCaractProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanelConsulta.setBackground(new java.awt.Color(204, 204, 255));
 
         jBFechar.setIcon(new javax.swing.ImageIcon("C:\\Users\\agner\\Documents\\NetBeansProjects\\FictitiousCompany\\src\\main\\java\\br\\com\\fcompany\\imagens\\Fechar.png")); // NOI18N
         jBFechar.setText("Fechar");
@@ -260,21 +177,53 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
             }
         });
 
+        javax.swing.GroupLayout jPnFormularioLayout = new javax.swing.GroupLayout(jPnFormulario);
+        jPnFormulario.setLayout(jPnFormularioLayout);
+        jPnFormularioLayout.setHorizontalGroup(
+            jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPnFormularioLayout.createSequentialGroup()
+                .addGap(157, 157, 157)
+                .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPnFormularioLayout.createSequentialGroup()
+                        .addComponent(jTextFieldBoxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBFechar))
+                    .addGroup(jPnFormularioLayout.createSequentialGroup()
+                        .addComponent(jTextFieldBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPnFormularioLayout.setVerticalGroup(
+            jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPnFormularioLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldBoxId, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPnFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBoxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addComponent(jBFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jPanelConsulta.setBackground(new java.awt.Color(204, 204, 255));
+
         javax.swing.GroupLayout jPanelConsultaLayout = new javax.swing.GroupLayout(jPanelConsulta);
         jPanelConsulta.setLayout(jPanelConsultaLayout);
         jPanelConsultaLayout.setHorizontalGroup(
             jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConsultaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBFechar)
-                .addContainerGap())
+            .addGap(0, 754, Short.MAX_VALUE)
         );
         jPanelConsultaLayout.setVerticalGroup(
             jPanelConsultaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConsultaLayout.createSequentialGroup()
-                .addContainerGap(161, Short.MAX_VALUE)
-                .addComponent(jBFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 188, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -327,18 +276,6 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     desabilitaEdicao();
     }//GEN-LAST:event_jTextFieldNomeActionPerformed
 
-    private void jTextFieldValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorActionPerformed
-   desabilitaEdicao();
-    }//GEN-LAST:event_jTextFieldValorActionPerformed
-
-    private void jTextFieldBoxValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBoxValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBoxValorActionPerformed
-
-    private void jTextFieldCaractProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCaractProdutoActionPerformed
-       desabilitaEdicao();
-    }//GEN-LAST:event_jTextFieldCaractProdutoActionPerformed
-
     private void jTextFieldBoxIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBoxIdActionPerformed
        
     }//GEN-LAST:event_jTextFieldBoxIdActionPerformed
@@ -346,10 +283,6 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     private void jTextFieldIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldIdActionPerformed
       desabilitaEdicao();
     }//GEN-LAST:event_jTextFieldIdActionPerformed
-
-    private void jTextFieldQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldQuantidadeActionPerformed
-       desabilitaEdicao();
-    }//GEN-LAST:event_jTextFieldQuantidadeActionPerformed
             //METODO PARA HABILITAR E DESABILITAR OS BOTÕES NO FORMULARIO
     public void habilitaBotoes(boolean estado){
         jBNovoProduto.setEnabled(estado);
@@ -363,18 +296,14 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     public void desabilitaEdicao(){
         jTextFieldNome.setEditable(false);
         jTextFieldId.setEditable(false);
-        jTextFieldQuantidade.setEditable(false);
-        jTextFieldCaractProduto.setEditable(false);
-        jTextFieldValor.setEditable(false);
+       
         
     }
     
     // METODO PARA LIMPAR OS CAMPOS
     public void limpaCampos(){
         jTextFieldBoxNome.setText("");
-        jTextFieldBoxQuantidade.setText("");
-        jTextFieldBoxValor.setText("");
-        jTextAreaBoxCaractProduto.setText("");
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -382,21 +311,14 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBExcluir;
     private javax.swing.JButton jBFechar;
-    private javax.swing.JButton jBNovoProduto;
-    private javax.swing.JButton jBSalvar;
-    private javax.swing.JPanel jPanelConsulta;
-    private javax.swing.JPanel jPnBotoes;
-    private javax.swing.JPanel jPnFormulario;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextAreaBoxCaractProduto;
-    private javax.swing.JTextField jTextFieldBoxId;
-    private javax.swing.JTextField jTextFieldBoxNome;
-    private javax.swing.JTextField jTextFieldBoxQuantidade;
-    private javax.swing.JTextField jTextFieldBoxValor;
-    private javax.swing.JTextField jTextFieldCaractProduto;
-    private javax.swing.JTextField jTextFieldId;
+    public javax.swing.JButton jBNovoProduto;
+    public javax.swing.JButton jBSalvar;
+    public javax.swing.JPanel jPanelConsulta;
+    public javax.swing.JPanel jPnBotoes;
+    public javax.swing.JPanel jPnFormulario;
+    public javax.swing.JTextField jTextFieldBoxId;
+    public javax.swing.JTextField jTextFieldBoxNome;
+    public javax.swing.JTextField jTextFieldId;
     private javax.swing.JTextField jTextFieldNome;
-    private javax.swing.JTextField jTextFieldQuantidade;
-    private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
 }

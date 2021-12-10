@@ -97,14 +97,10 @@ public class Principal extends javax.swing.JFrame {
         CadastroProduto form = new CadastroProduto();
         jDesktop.add(form);
         form.setVisible(true);
-
-
     }//GEN-LAST:event_jMenuItemCadastroActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        CadastroCliente cli = new CadastroCliente();
-        jDesktop.add(cli);
-        cli.setVisible(true);
+    
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
@@ -139,6 +135,7 @@ public class Principal extends javax.swing.JFrame {
             @Override
             public void run() {
                 new Principal().setVisible(true);
+                
             }
         });
     }

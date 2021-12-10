@@ -33,6 +33,8 @@ public class CadastroProduto extends FormPadrao {
 
     @Override
     public void inicializarComponentes() {
+
+        //fiz uma alteração
         // TextField CARACTERISTICA
         jlCaracteristica = new JLabel("CARACTERISTICA");
         jlCaracteristica.setBounds(95, 73, 125, 20);

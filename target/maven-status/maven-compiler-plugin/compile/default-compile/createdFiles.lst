@@ -1,0 +1,3 @@
+br\com\fcompany\domain\Cliente.class
+br\com\fcompany\controller\ClienteController.class
+br\com\fcompany\repository\ClienteRepository.class

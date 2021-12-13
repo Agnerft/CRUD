@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.com.fcompany.ws;
+package br.com.fcompany.rn;
 
 /**
  *
@@ -74,6 +74,10 @@ public class TipoProdutoModelo {
 //        this.porcentagem = porcentagem;
 //    }
 
+    public String toString() {
+        return (" Id = " + id + " Nome = " + nome + " Caracteristica do Produto = " + caracteristicaProduto + " Contagem de Produtos = "
+                + contagemProduto + " Valor da Compra = " + valorCompra);
+    }
   
     
 }

@@ -1,6 +1,7 @@
 package br.com.fcompany.forms;
 
 import br.com.fcompany.dao.ConexaoBanco;
+import br.com.fcompany.util.PosicaoFormulario;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,6 +12,10 @@ import javax.swing.JFrame;
  * @author agner
  */
 public class Principal extends javax.swing.JFrame {
+    
+    
+     PosicaoFormulario posicao = new PosicaoFormulario();
+     
 
     public Principal() {
         initComponents();
@@ -113,10 +118,11 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItemCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroActionPerformed
-
-        CadastroProduto form = new CadastroProduto();
-        jDesktop.add(form);
-        form.setVisible(true);
+    
+          CadastroProduto produto;
+          posicao.abrirFormulario(produto = new CadastroProduto(), jDesktop);
+         
+          
     }//GEN-LAST:event_jMenuItemCadastroActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed

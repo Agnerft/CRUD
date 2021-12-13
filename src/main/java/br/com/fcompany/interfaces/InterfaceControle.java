@@ -4,6 +4,9 @@
  */
 package br.com.fcompany.interfaces;
 
+import br.com.fcompany.rn.TipoProdutoModelo;
+import java.util.List;
+
 /**
  *
  * @author agner
@@ -11,8 +14,9 @@ package br.com.fcompany.interfaces;
 public interface InterfaceControle {
     
     public void salvarProduto(Object... valor);
-    public void excluirProduto(int id);
-    public void carregarProdutos();
+    public void excluirProduto();
+    public List<TipoProdutoModelo> carregarProdutos(String nome);
+   // public void consultarControle(Object... valor);
     
     
 }

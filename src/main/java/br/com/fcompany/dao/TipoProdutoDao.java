@@ -5,15 +5,15 @@
 package br.com.fcompany.dao;
 
 import br.com.fcompany.interfaces.InterfaceProdutoDAO;
-import br.com.fcompany.ws.TipoProdutoModelo;
-import java.sql.Connection;
+import br.com.fcompany.rn.Produto;
+import br.com.fcompany.rn.TipoProdutoModelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JComboBox;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,10 +31,13 @@ public class TipoProdutoDao implements InterfaceProdutoDAO{
             con.openConnection();
              
             TipoProdutoModelo tpm = (TipoProdutoModelo) valor[0];
-            String salvarProduto = "INSERT INTO cadastro_produto (nome) VALUES (?) RETURNING id";
+            String salvarProduto = "INSERT INTO cadastro_produto (nome, caracteristicaProduto, contagemProduto, valorCompra) VALUES (?,?,?,?) RETURNING id";
             
             pdst = con.getCon().prepareStatement(salvarProduto);
                 pdst.setObject(1, tpm.getNome());
+                pdst.setObject(2, tpm.getCaracteristicaProduto());
+                pdst.setObject(3, tpm.getContagemProduto());
+                pdst.setObject(4, tpm.getValorCompra());
                     pdst.execute();
                     pdst.close();
                     
@@ -45,17 +48,40 @@ public class TipoProdutoDao implements InterfaceProdutoDAO{
     }
 
     @Override
-    public void excluirProdutoDAO(int id) {
+    public void excluirProdutoDAO() {
         
     }
 
     @Override
     public void consultarProdutoDAO(Object... valor) throws SQLException {
+        String carregarProdutos = "select * from cadastro_produto";
+        pdst = con.getCon().prepareStatement(carregarProdutos);
+        rs = pdst.executeQuery();
+        
         
     }
 
     @Override
-    public void carregarProdutosDAO(JComboBox itens) throws SQLException {
+    public List<TipoProdutoModelo> carregarProdutosDAO(String nome) throws SQLException {
+   
+     con.openConnection();
+  
+        List<TipoProdutoModelo> lista = new LinkedList<>();
+        
+        String carregarLista = "select * from cadastro_produto";
+        pdst = con.getCon().prepareStatement(carregarLista);
+        rs = pdst.executeQuery();
+        while(rs.next()){
+           TipoProdutoModelo p = new TipoProdutoModelo();
+           p.setId(rs.getInt("id"));
+           p.setNome(rs.getString("nome"));
+           p.setCaracteristicaProduto(rs.getString("caracteristicaProduto"));
+           p.setContagemProduto(rs.getInt("contagemProduto"));
+           p.setValorCompra(rs.getDouble("valorCompra"));
+           lista.add(p);                      
+        }
+        
+       return lista;
         
     }
     

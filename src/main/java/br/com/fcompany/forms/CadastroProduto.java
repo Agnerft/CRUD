@@ -1,11 +1,14 @@
 package br.com.fcompany.forms;
 
 import br.com.fcompany.controle.TipoProdutoControle;
+import br.com.fcompany.rn.TipoProdutoModelo;
 import java.awt.Color;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class CadastroProduto extends FormPadrao {
 
@@ -20,16 +23,21 @@ public class CadastroProduto extends FormPadrao {
 
     JLabel jlValor;
     JTextField jtValor;
-
+    
+    
+ 
     public CadastroProduto() {
 
         setTitle("CADASTRO DE PRODUTO");
-
+        
     }
-
+    
+ 
     @Override
     public void inicializarComponentes() {
-
+        
+        
+        
         //fiz uma alteração
         // TextField CARACTERISTICA
         jlCaracteristica = new JLabel("CARACTERISTICA");
@@ -78,14 +86,44 @@ public class CadastroProduto extends FormPadrao {
         jtValor.setOpaque(true);
 
         jPnFormulario.add(jtValor);
+        tpc = new TipoProdutoControle();
 
+        
     }
 
     @Override
     public void salvar() {
         // INSERIR OS COMANDOS QUE SERÁ FEITO NO CONTROLE
-        tpc.salvarProduto(jtFieldBoxId.getText(), jtBoxNome.getText());
-                //, jtCaracteristica.getText(), jtContagemProduto.getText(), jtValor.getText());
+        tpc.salvarProduto(jtFieldBoxId.getText(), jtBoxNome.getText() ,jtCaracteristica.getText(), jtContagemProduto.getText(), jtValor.getText()); 
     }
 
+    @Override
+    public void criarTabela() {
+        
+        tabela = utilTabela.criarTabela(jPanelConsulta,
+                new Object[] {60, 150, 250, 25, 25},
+                new Object[] {"esquerda", "centro", "centro", "direita"},
+                new Object[] {"ID", "Nome do Contato", "Caracteristica", "Contagem", "Valor"});
+    
+        modelo = (DefaultTableModel) tabela.getModel();
+        
+    }
+
+    @Override
+    public void carregarTabela() {
+        // estou dizendo que minha tabela tem 0 linhas, toda vez que eu fizer uma consulta ele apaga as linhas e seta 0
+        modelo.setRowCount(0);
+       // TipoProdutoControle tpc = new TipoProdutoControle();
+        List<TipoProdutoModelo> lista = tpc.carregarProdutos("");
+        Object[] linha = new Object[5];
+        for (TipoProdutoModelo tproduto : lista) {
+            linha[0] = tproduto.getId();
+            modelo.addRow(linha);
+        }
+        
+      
+        System.out.println("Teste");
+    }
+    
 }
+  

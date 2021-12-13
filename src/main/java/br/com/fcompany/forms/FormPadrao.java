@@ -1,10 +1,14 @@
 
 package br.com.fcompany.forms;
 
+import br.com.fcompany.rn.TipoProdutoModelo;
+import br.com.fcompany.util.Tabela;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,7 +22,23 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         // METODOS QUE SERÃO IMPLEMENTADOS NAS CLASSES FILHAS
     abstract public void inicializarComponentes();
     abstract public void salvar();
-        
+    abstract public void criarTabela();
+    abstract public void carregarTabela();
+    private TipoProdutoModelo tproduto;
+  
+    
+    // CRIANDO A TABELA
+    
+    
+    JTable tabela;
+    DefaultTableModel modelo = new DefaultTableModel();
+    
+    // Instanciando objeto para manipular a classe tabela
+    
+    
+  
+    
+    Tabela utilTabela = new Tabela();
         // CONSTRUTOR -- SERA EXECUTADO QUANDO O FORM FOR CHAMADO
         //Metodo Construtor
     public FormPadrao() {
@@ -28,6 +48,8 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         limpaCampos();
         desabilitaEdicao();
         inicializarComponentes();
+        criarTabela();
+        
         
 
         //jLabel - consulta
@@ -45,6 +67,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
         jtfConsulta.setBounds(120, 10, 533, 20);
         jtfConsulta.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
          jPanelConsulta.add(jtfConsulta);  
+         carregarTabela();
     }
 
     
@@ -269,6 +292,11 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     private void jBAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAlterarActionPerformed
         habilitaBotoes(false);
         jtBoxNome.requestFocus();
+        carregarTabela();
+        
+        
+        
+        
     }//GEN-LAST:event_jBAlterarActionPerformed
 
     private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
@@ -311,6 +339,7 @@ abstract public class FormPadrao extends javax.swing.JInternalFrame {
     // METODO PARA LIMPAR OS CAMPOS
     public void limpaCampos(){
         jtBoxNome.setText("");
+        
         
     }
 

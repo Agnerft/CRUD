@@ -4,7 +4,9 @@
  */
 package br.com.fcompany.interfaces;
 
+import br.com.fcompany.rn.TipoProdutoModelo;
 import java.sql.SQLException;
+import java.util.List;
 import javax.swing.JComboBox;
 
 /**
@@ -14,9 +16,9 @@ import javax.swing.JComboBox;
 public interface InterfaceProdutoDAO {
     
     public void salvarProdutoDAO(Object... valor);
-    public void excluirProdutoDAO(int id);
+    public void excluirProdutoDAO();
     public void consultarProdutoDAO(Object... valor) throws SQLException;
-    public void carregarProdutosDAO(JComboBox itens) throws SQLException;
+    public List<TipoProdutoModelo> carregarProdutosDAO(String nome) throws SQLException;
     
     
 }
